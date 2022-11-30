@@ -9,7 +9,7 @@ const forward = async (message, from) => {
         if (from === 'discord') {
             await imessage.send(message.text, message.author, message.attachments);
         } else if (from === 'imessage') {
-            await discord.send(message.text.replaceAll('￼', ''), message.author || config.iMsg.name, message.attachments);
+            await discord.send(message.text.replace(/￼/g, ''), message.author || config.iMsg.name, message.attachments);
         }
     } catch (e) {
         console.error('Error while forwarding', e, 'Message:', message, 'From:', from);

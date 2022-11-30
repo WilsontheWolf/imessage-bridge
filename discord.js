@@ -3,7 +3,7 @@ import { fetchURL } from "./shared.js";
 
 // Stolen from https://github.com/discordjs/discord.js/blob/main/packages/discord.js/src/util/Util.js#L543
 function cleanContent(str, channel) {
-    return str.replaceAll(/<(@[!&]?|#)(\d{17,19})>/g, (match, type, id) => {
+    return str.replace(/<(@[!&]?|#)(\d{17,19})>/g, (match, type, id) => {
         switch (type) {
             case '@':
             case '@!': {
@@ -28,7 +28,7 @@ function cleanContent(str, channel) {
             }
         }
     })
-        .replaceAll(/<(:[\w~]+:)(\d{17,19})>/g, '$1');
+        .replace(/<(:[\w~]+:)(\d{17,19})>/g, '$1');
 }
 
 class Discord {

@@ -55,11 +55,8 @@ class iMessage {
         this.ws = new WebSocket(this.wsURL);
         this.ws.on('message', (buffer) => {
             const data = JSON.parse(buffer.toString());
-            console.log(data.action);
             if (data.action === 'newMessage') {
                 data.data.message.forEach((message) => {
-                    // console.log(message);
-                    // console.log(`${message.sender == 1 ? 'I' : message.author} sent ${message.text} in ${message.chatId}`);
                     if (!message.text?.trim() && !message.attachments?.length) return;
                     if (!message.subject && this.recipient === message.chatId)
                         this.forwardFunc({
