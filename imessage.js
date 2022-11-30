@@ -23,7 +23,7 @@ class iMessage {
 
     async send(message, subject, attachments) {
         let files = [];
-        message = message.replace(/(?:https?:\/\/)?(?:[\w+\.])+\.\w+(?:\S)*/g, '­$&­'); // This wraps (­) (U+00AD SOFT HYPHEN) around links which keeps them in the same message on my machine fixing weird issues.
+        message = message.replace(/(?:https?:\/\/)?(?:[\w+\.])+\.\w+(?:\S)*/g, '­$& ​­'); // This wraps (­) (U+00AD SOFT HYPHEN) around links which keeps them in the same message on my machine fixing weird issues.
         if (attachments?.length) {
             await Promise.all(
                 attachments.map(async ([url, filename]) => {
