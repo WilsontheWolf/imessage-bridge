@@ -1,0 +1,12 @@
+{
+  "name": "imessage-bridge",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@projectdysnomia/dysnomia": "github:projectdysnomia/dysnomia#dev",
+    "node-fetch": "^3.3.0",
+    "ws": "^8.11.0"
+  }
+}
